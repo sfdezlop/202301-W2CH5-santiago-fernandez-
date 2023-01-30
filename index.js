@@ -513,48 +513,6 @@ function updateFrameWithInitialPattern(a) {
   return;
 }
 
-function updateFrameWithContiguousCells() {
-
-  for (let i = 0; i < frame.length; i++) {
-    const rcCoordenates = frame[i].rowColumn;
-    const rcCoordenatesArray = rcCoordenates.split('r')[1].split('c');
-    const rowCoordenates = Number(rcCoordenatesArray[0]);
-    const columnCoordenates = Number(rcCoordenatesArray[1]);
-    const accContiguousCell = 0;
-
-    if (frame[i].cellStatus === 'A') {
-      console.log(frame[i].rowColumn);
-      console.log(
-        contiguousPossiblePositionsOfAPosition(frame[i].row, frame[i].column)
-      );
-      for (
-        let j = 0;
-        j <
-        contiguousPossiblePositionsOfAllPositionsButThis(
-          rowCoordenates,
-          columnCoordenates
-        ).length;
-        j++
-      ) {
-        if (
-          frame.findIndex(
-            (element) =>
-              element.rowColumns ===
-              contiguousPossiblePositionsOfAllPositionsButThis(
-                rowCoordenates,
-                columnCoordenates
-              )
-          ) > -1
-        ) {
-          accContiguousCell = accContiguousCell + 1;
-          console.log('match');
-        }
-        frame[i].contiguousCells = accContiguousCell;
-      }
-    }
-  }
-}
-
 function maximumValueOfAIteration() {
 
   let result = 0;
